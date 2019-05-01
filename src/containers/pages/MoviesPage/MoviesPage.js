@@ -5,8 +5,8 @@ import { Container } from 'reactstrap';
 export default class MoviesPage extends Component {
   render() {
     return (
-      <main>
-        <Container>MoviesPage</Container>{' '}
+      <main className={classes.MoviesPage}>
+        <Container>MoviesPage</Container>
       </main>
     );
   }

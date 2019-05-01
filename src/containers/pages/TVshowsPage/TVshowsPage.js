@@ -3,6 +3,6 @@ import classes from './TVshowsPage.module.sass';
 
 export default class TVshowsPage extends Component {
   render() {
-    return <div>TVshowsPage</div>;
+    return <div className={classes.TVshowsPage}>TVshowsPage</div>;
   }
 }

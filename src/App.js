@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './components/Header';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Container } from 'reactstrap';
 import {
   HomePage,
   MoviesPage,

@@ -3,6 +3,6 @@ import classes from './DetailsPage.module.sass';
 
 export default class DetailsPage extends Component {
   render() {
-    return <div />;
+    return <div className={classes.DetailsPage} />;
   }
 }

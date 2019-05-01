@@ -1,17 +1,43 @@
 import React, { Component } from 'react';
 import classes from './HomePage.module.sass';
-import { getPopularMovies } from '../../../API/API';
 import { Container } from 'reactstrap';
+import { connect } from 'react-redux';
+import { fetchMovies } from '../../../redux/actions/movies';
+import Loader from '../../../components/Loader';
 
-export default class HomePage extends Component {
+class HomePage extends Component {
+  componentDidMount() {
+    this.props.fetchMovies();
+  }
+
+  renderList = arr => {
+    return arr.map((item, idx) => {
+      return <div key={idx}>{item.title}</div>;
+    });
+  };
   render() {
-    const response = getPopularMovies();
-    //console.log(response.data);
-
     return (
-      <main>
-        <Container>{'ffff'}</Container>
+      <main className={classes.HomePage}>
+        {this.props.loading ? (
+          <Loader />
+        ) : (
+          <Container>{this.renderList(this.props.movies.movies)}</Container>
+        )}
       </main>
     );
   }
 }
+
+const mapStateToProps = ({ loading, movies }) => ({
+  loading,
+  movies,
+});
+
+const mapDispatchToProps = {
+  fetchMovies,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomePage);
