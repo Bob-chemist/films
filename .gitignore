@@ -11,6 +11,9 @@
 # production
 /build
 
+# tokens
+src/API/APItoken.js
+
 # misc
 .DS_Store
 .env.local

@@ -3,6 +3,6 @@ import classes from './WatchListPage.module.sass';
 
 export default class WatchListPage extends Component {
   render() {
-    return <div />;
+    return <div>WatchListPage</div>;
   }
 }
