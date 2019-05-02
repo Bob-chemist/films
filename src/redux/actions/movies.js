@@ -3,10 +3,15 @@ import {
   FETCH_MOVIES_SUCCESS,
   FETCH_CONTENT_ERROR,
   FETCH_TVSHOWS_SUCCESS,
+  FETCH_PERSONS_SUCCESS,
 } from './actionTypes';
 import axios from 'axios';
 import token from '../../API/APItoken';
-import { fromMovies } from '../../utils/prepareData';
+import {
+  _transformMovies,
+  _transformPersons,
+  _transformTvShow,
+} from '../../utils/prepareData';
 
 export function fetchPopular(section) {
   return async dispatch => {
@@ -19,10 +24,14 @@ export function fetchPopular(section) {
 
       const popular = response.data.results;
       if (section === 'movie') {
-        const movies = fromMovies(popular);
+        const movies = popular.map(_transformMovies);
         dispatch(fetchMoviesSuccess(movies));
       } else if (section === 'tv') {
-        dispatch(fetchTVShowsSuccess(popular));
+        const tvShows = popular.map(_transformTvShow);
+        dispatch(fetchTVShowsSuccess(tvShows));
+      } else if (section === 'person') {
+        const persons = popular.map(_transformPersons);
+        dispatch(fetchPersonsSuccess(persons));
       }
     } catch (e) {
       dispatch(fetchContentError(e.message));
@@ -42,13 +51,16 @@ export function fetchMoviesSuccess(movies) {
     movies,
   };
 }
-
 export function fetchTVShowsSuccess(tvShows) {
-  console.log(tvShows);
-
   return {
     type: FETCH_TVSHOWS_SUCCESS,
     tvShows,
+  };
+}
+export function fetchPersonsSuccess(persons) {
+  return {
+    type: FETCH_PERSONS_SUCCESS,
+    persons,
   };
 }
 export function fetchContentError(error) {

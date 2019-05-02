@@ -3,11 +3,13 @@ import {
   FETCH_MOVIES_SUCCESS,
   FETCH_TVSHOWS_SUCCESS,
   FETCH_CONTENT_ERROR,
+  FETCH_PERSONS_SUCCESS,
 } from '../actions/actionTypes';
 
 const initialState = {
   movies: [],
   tvShows: [],
+  persons: [],
   loading: false,
   error: null,
 };
@@ -30,6 +32,12 @@ export default function moviesReducer(state = initialState, actions) {
         ...state,
         loading: false,
         tvShows: actions.tvShows,
+      };
+    case FETCH_PERSONS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        persons: actions.persons,
       };
     case FETCH_CONTENT_ERROR:
       return {

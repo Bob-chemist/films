@@ -14,7 +14,7 @@ class TVshowsPage extends Component {
   render() {
     const { loading, tvShows } = this.props;
     return (
-      <main className={classes.HomePage}>
+      <main className={classes.TVshowsPage}>
         {loading ? (
           <Loader />
         ) : (

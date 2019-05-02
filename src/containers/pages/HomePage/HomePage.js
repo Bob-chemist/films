@@ -9,27 +9,27 @@ import ItemsList from '../../../components/ItemsList/ItemsList';
 class HomePage extends Component {
   componentDidMount() {
     this.props.fetchPopular('movie');
+    this.props.fetchPopular('tv');
+    this.props.fetchPopular('person');
   }
 
   render() {
-    const { loading, movies } = this.props;
+    const { loading, movies, tvShows, persons } = this.props;
     return (
       <main className={classes.HomePage}>
-        {loading ? (
-          <Loader />
-        ) : (
-          <Container>
-            <ItemsList itemsList={movies} />
-          </Container>
-        )}
+        {loading ? <Loader /> : <Container>Home Page</Container>}
       </main>
     );
   }
 }
 
-const mapStateToProps = ({ loading, movies: { movies } }) => ({
+const mapStateToProps = ({
+  movies: { loading, movies, tvShows, persons },
+}) => ({
   loading,
   movies,
+  tvShows,
+  persons,
 });
 
 const mapDispatchToProps = {

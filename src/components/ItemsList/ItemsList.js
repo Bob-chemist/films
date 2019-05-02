@@ -7,13 +7,13 @@ const ItemsList = props => {
   const { itemsList } = props;
 
   return itemsList.map((item, idx) => {
-    const { id, name, overview, poster_path } = item;
+    const { id, name, overview, img } = item;
     return (
       <Row className={classes.movie} key={`home${idx}`}>
         <Col sm={{ size: 8, offset: 2 }} md={{ size: 3, offset: 0 }}>
           <img
             className={classes.img}
-            src={`https://image.tmdb.org/t/p/w200${poster_path}`}
+            src={`https://image.tmdb.org/t/p/w200${img}`}
             alt={name}
           />
         </Col>
