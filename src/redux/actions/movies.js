@@ -1,29 +1,38 @@
 import {
-  FETCH_MOVIES_START,
+  FETCH_CONTENT_START,
   FETCH_MOVIES_SUCCESS,
-  FETCH_MOVIES_ERROR,
+  FETCH_CONTENT_ERROR,
+  FETCH_TVSHOWS_SUCCESS,
 } from './actionTypes';
 import axios from 'axios';
+import token from '../../API/APItoken';
+import { fromMovies } from '../../utils/prepareData';
 
-export function fetchMovies() {
+export function fetchPopular(section) {
   return async dispatch => {
-    dispatch(fetchMoviesStart());
+    dispatch(fetchContentStart());
     try {
       const response = await axios.get(
-        'https://api.themoviedb.org/3/movie/popular?api_key=75a419ad08c7eece5794d527cd189f28&language=ru-RU'
+        `https://api.themoviedb.org/3/${section}/popular?api_key=${token}&language=ru-RU`
       );
+      console.log(response);
 
       const popular = response.data.results;
-      dispatch(fetchMoviesSuccess(popular));
+      if (section === 'movie') {
+        const movies = fromMovies(popular);
+        dispatch(fetchMoviesSuccess(movies));
+      } else if (section === 'tv') {
+        dispatch(fetchTVShowsSuccess(popular));
+      }
     } catch (e) {
-      dispatch(fetchMoviesError(e.message));
+      dispatch(fetchContentError(e.message));
     }
   };
 }
 
-export function fetchMoviesStart() {
+export function fetchContentStart() {
   return {
-    type: FETCH_MOVIES_START,
+    type: FETCH_CONTENT_START,
   };
 }
 
@@ -33,9 +42,18 @@ export function fetchMoviesSuccess(movies) {
     movies,
   };
 }
-export function fetchMoviesError(error) {
+
+export function fetchTVShowsSuccess(tvShows) {
+  console.log(tvShows);
+
   return {
-    type: FETCH_MOVIES_ERROR,
+    type: FETCH_TVSHOWS_SUCCESS,
+    tvShows,
+  };
+}
+export function fetchContentError(error) {
+  return {
+    type: FETCH_CONTENT_ERROR,
     error: error,
   };
 }
