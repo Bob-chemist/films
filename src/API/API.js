@@ -10,15 +10,12 @@ const fetchDetails = async (section, id) => {
     const response = await Axios.get(
       `${section}/${id}?api_key=${token}&language=ru-RU`
     );
-    let data = await response;
-    console.log('response: ', data);
+    console.log('response: ', response.data);
 
-    return data.data;
+    return response.data;
   } catch (e) {
     console.log(e.message);
   }
 };
 
-const getData = async () => await console.log(fetchDetails('tv', '1399'));
-
-export { fetchDetails, getData };
+export { fetchDetails };

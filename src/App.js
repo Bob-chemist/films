@@ -9,6 +9,7 @@ import {
 } from './containers/pages';
 import MovieDetails from './components/MovieDetails/MovieDetails';
 import TvshowDetails from './components/TvshowDetails/TvshowDetails';
+import PersonDetails from './components/PersonDetails/PersonDetails';
 
 const App = () => {
   return (
@@ -21,7 +22,7 @@ const App = () => {
         <Route path="/tvshows" exact component={TVshowsPage} />
         <Route path="/tvshows/:id" render={id => <TvshowDetails id={id} />} />
         <Route path="/persons" exact component={PersonsPage} />
-        <Route path="/persons/:id" component={PersonsPage} />
+        <Route path="/persons/:id" render={id => <PersonDetails id={id} />} />
       </Switch>
     </BrowserRouter>
   );
