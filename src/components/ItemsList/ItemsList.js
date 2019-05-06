@@ -11,15 +11,10 @@ const ItemsList = props => {
     return (
       <Row className={classes.movie} key={`home${idx}`}>
         <Col sm={{ size: 8, offset: 2 }} md={{ size: 3, offset: 0 }}>
-          <img
-            className={classes.img}
-            src={`https://image.tmdb.org/t/p/w200${img}`}
-            alt={name}
-          />
+          <img className={classes.img} src={img} alt={name} />
         </Col>
         <Col sm="12" md={{ size: 9, offset: 0 }}>
-          <Link className={classes.Title} to={`movies/${id}`}>
-            {' '}
+          <Link className={classes.Title} to={id.toString()}>
             {name}
           </Link>
           <div>{overview}</div>

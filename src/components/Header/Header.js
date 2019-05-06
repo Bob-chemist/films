@@ -19,7 +19,9 @@ const Header = () => {
     <header className={classes.Header}>
       <Container>
         <Navbar color="dark" dark expand="lg">
-          <NavbarBrand href="/">Films</NavbarBrand>
+          <NavbarBrand tag={NavLink} to="/" exact>
+            Films
+          </NavbarBrand>
           <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>

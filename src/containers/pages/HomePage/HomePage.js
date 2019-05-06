@@ -2,29 +2,38 @@ import React, { Component } from 'react';
 import classes from './HomePage.module.sass';
 import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
-import { fetchPopular } from '../../../redux/actions/movies';
+import { fetchHomePage } from '../../../redux/actions/getData';
 import Loader from '../../../components/Loader';
-import ItemsList from '../../../components/ItemsList/ItemsList';
+import RowList from '../../../components/RowList/RowList';
 
 class HomePage extends Component {
   componentDidMount() {
-    this.props.fetchPopular('movie');
-    this.props.fetchPopular('tv');
-    this.props.fetchPopular('person');
+    this.props.fetchHomePage();
   }
 
   render() {
     const { loading, movies, tvShows, persons } = this.props;
     return (
       <main className={classes.HomePage}>
-        {loading ? <Loader /> : <Container>Home Page</Container>}
+        {loading ? (
+          <Loader />
+        ) : (
+          <Container>
+            <h2>Лучшие фильмы</h2>
+            <RowList list={movies} />
+            <h2>Лучшие сериалы</h2>
+            <RowList list={tvShows} />
+            <h2>Популярные актеры</h2>
+            <RowList list={persons} />
+          </Container>
+        )}
       </main>
     );
   }
 }
 
 const mapStateToProps = ({
-  movies: { loading, movies, tvShows, persons },
+  popular: { loading, movies, tvShows, persons },
 }) => ({
   loading,
   movies,
@@ -33,7 +42,7 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = {
-  fetchPopular,
+  fetchHomePage,
 };
 
 export default connect(

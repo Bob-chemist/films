@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classes from './PersonsPage.module.sass';
 import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
-import { fetchPopular } from '../../../redux/actions/movies';
+import { fetchPopular } from '../../../redux/actions/getData';
 import Loader from '../../../components/Loader';
 import ItemsList from '../../../components/ItemsList/ItemsList';
 
@@ -26,7 +26,7 @@ class PersonsPage extends Component {
   }
 }
 
-const mapStateToProps = ({ movies: { loading, persons } }) => ({
+const mapStateToProps = ({ popular: { loading, persons } }) => ({
   loading,
   persons,
 });

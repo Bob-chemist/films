@@ -7,6 +7,8 @@ import {
   TVshowsPage,
   PersonsPage,
 } from './containers/pages';
+import MovieDetails from './components/MovieDetails/MovieDetails';
+import TvshowDetails from './components/TvshowDetails/TvshowDetails';
 
 const App = () => {
   return (
@@ -14,9 +16,12 @@ const App = () => {
       <Header />
       <Switch>
         <Route path="/" exact component={HomePage} />
-        <Route path="/movies" component={MoviesPage} />
-        <Route path="/tvshows" component={TVshowsPage} />
-        <Route path="/persons" component={PersonsPage} />
+        <Route path="/movies" exact component={MoviesPage} />
+        <Route path="/movies/:id" render={id => <MovieDetails id={id} />} />
+        <Route path="/tvshows" exact component={TVshowsPage} />
+        <Route path="/tvshows/:id" render={id => <TvshowDetails id={id} />} />
+        <Route path="/persons" exact component={PersonsPage} />
+        <Route path="/persons/:id" component={PersonsPage} />
       </Switch>
     </BrowserRouter>
   );

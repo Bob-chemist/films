@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Loader from '../../../components/Loader';
 import ItemsList from '../../../components/ItemsList/ItemsList';
 import { Container } from 'reactstrap';
-import { fetchPopular } from '../../../redux/actions/movies';
+import { fetchPopular } from '../../../redux/actions/getData';
 
 class TVshowsPage extends Component {
   componentDidMount() {
@@ -27,7 +27,7 @@ class TVshowsPage extends Component {
   }
 }
 
-const mapStateToProps = ({ loading, movies: { tvShows } }) => ({
+const mapStateToProps = ({ popular: { loading, tvShows } }) => ({
   loading,
   tvShows,
 });

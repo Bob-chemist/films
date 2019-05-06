@@ -1,27 +1,24 @@
 import axios from 'axios';
 import token from './APItoken';
 
-const Axios = axios.create({
+export const Axios = axios.create({
   baseURL: 'https://api.themoviedb.org/3/',
 });
 
-const getData = async url => {
+const fetchDetails = async (section, id) => {
   try {
-    const response = await Axios.get(`${url}?api_key=${token}`);
-    console.log(response.data);
-    return response;
-  } catch (error) {
-    console.error(error);
+    const response = await Axios.get(
+      `${section}/${id}?api_key=${token}&language=ru-RU`
+    );
+    let data = await response;
+    console.log('response: ', data);
+
+    return data.data;
+  } catch (e) {
+    console.log(e.message);
   }
 };
 
-const getAllPersons = async () => {
-  const res = await getData('persons/');
-  return res;
-};
-const getPopularMovies = async () => {
-  const res = await getData('movie/550');
-  return res;
-};
+const getData = async () => await console.log(fetchDetails('tv', '1399'));
 
-export { getData, getAllPersons, getPopularMovies };
+export { fetchDetails, getData };
