@@ -11,6 +11,10 @@ class HomePage extends Component {
     this.props.fetchHomePage();
   }
 
+  // componentDidUpdate() {
+  //   this.props.fetchHomePage();
+  // }
+
   render() {
     const { loading, movies, tvShows, persons } = this.props;
     return (
@@ -20,11 +24,11 @@ class HomePage extends Component {
         ) : (
           <Container>
             <h2>Лучшие фильмы</h2>
-            <RowList list={movies} />
+            <RowList type="movies" list={movies} />
             <h2>Лучшие сериалы</h2>
-            <RowList list={tvShows} />
+            <RowList type="tvshows" list={tvShows} />
             <h2>Популярные актеры</h2>
-            <RowList list={persons} />
+            <RowList type="persons" list={persons} />
           </Container>
         )}
       </main>

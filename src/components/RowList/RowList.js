@@ -3,12 +3,12 @@ import classes from './RowList.module.sass';
 import { Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-const RowList = ({ list }) => {
+const RowList = ({ list, type }) => {
   const [item0, item1, item2, item3, item4] = list;
   return (
     <Row className={`no-gutters ${classes.RowList}`}>
       <Col sm="12" md="6">
-        <Link to={`/${item0.id}`}>
+        <Link to={`/${type}/${item0.id}`}>
           <div
             style={{
               background: `#fff url(${item0.img}) no-repeat center center`,
@@ -22,7 +22,7 @@ const RowList = ({ list }) => {
         </Link>
       </Col>
       <Col sm="6" md="3">
-        <Link to={`/${item1.id}`}>
+        <Link to={`/${type}/${item1.id}`}>
           <div
             style={{
               background: `#fff url(${item1.img}) no-repeat center center`,
@@ -33,7 +33,7 @@ const RowList = ({ list }) => {
             <span>{item1.name}</span>
           </div>
         </Link>
-        <Link to={`/${item2.id}`}>
+        <Link to={`/${type}/${item2.id}`}>
           <div
             style={{
               background: `#fff url(${item2.img}) no-repeat center center`,
@@ -46,7 +46,7 @@ const RowList = ({ list }) => {
         </Link>
       </Col>
       <Col sm="6" md="3">
-        <Link to={`/${item3.id}`}>
+        <Link to={`/${type}/${item3.id}`}>
           <div
             style={{
               background: `#fff url(${item3.img}) no-repeat center center`,
@@ -57,7 +57,7 @@ const RowList = ({ list }) => {
             <span>{item3.name}</span>
           </div>
         </Link>
-        <Link to={`/${item4.id}`}>
+        <Link to={`/${type}/${item4.id}`}>
           <div
             style={{
               background: `#fff url(${item4.img}) no-repeat center center`,
