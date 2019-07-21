@@ -14,6 +14,11 @@
 # tokens
 src/API/APItoken.js
 
+# firebase deployment
+/.firebase
+.firebaserc
+firebase.json
+
 # misc
 .DS_Store
 .env.local
