@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import classes from './PersonDetails.module.sass';
 import { Container, Row, Col } from 'reactstrap';
 import { fetchDetails } from '../../API/API';

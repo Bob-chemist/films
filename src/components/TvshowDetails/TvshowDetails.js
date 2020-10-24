@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import classes from './TvshowDetails.module.sass';
 import { Axios } from '../../API/API';
 import Loader from '../Loader';

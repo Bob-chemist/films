@@ -1,4 +1,3 @@
-import React from 'react';
 import classes from './RowList.module.sass';
 import { Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';

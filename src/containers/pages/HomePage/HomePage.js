@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import classes from './HomePage.module.sass';
 import { Container } from 'reactstrap';
 import { connect } from 'react-redux';

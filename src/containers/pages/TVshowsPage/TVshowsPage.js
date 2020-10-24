@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import classes from './TVshowsPage.module.sass';
 import { connect } from 'react-redux';
 import Loader from '../../../components/Loader';
