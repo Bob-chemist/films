@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import classes from './MovieDetails.module.sass';
 import { connect } from 'react-redux';
 import { fetchDetails } from '../../redux/actions/getData';
@@ -10,8 +10,8 @@ class MovieDetails extends Component {
     this.props.fetchDetails('movie', this.props.id.match.params.id);
   }
 
-  renderList = arr => {
-    return arr.map(item => {
+  renderList = (arr) => {
+    return arr.map((item) => {
       return <div key={'list' + Math.random()}>{item.name}</div>;
     });
   };
@@ -56,7 +56,4 @@ const mapStateToProps = ({ popular: { loading, details } }) => ({
 
 const mapDispatchToProps = { fetchDetails };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MovieDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(MovieDetails);

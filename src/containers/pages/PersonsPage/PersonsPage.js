@@ -35,7 +35,4 @@ const mapDispatchToProps = {
   fetchPopular,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PersonsPage);
+export default connect(mapStateToProps, mapDispatchToProps)(PersonsPage);

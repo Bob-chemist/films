@@ -16,7 +16,7 @@ import {
 } from '../../utils/prepareData';
 
 export function fetchPopular(section) {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch(fetchContentStart());
     try {
       const response = await axios.get(
@@ -41,7 +41,7 @@ export function fetchPopular(section) {
 }
 
 export function fetchDetails(section, id) {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch(fetchContentStart());
     try {
       const response = await axios.get(
@@ -63,7 +63,7 @@ function fetchDetailsSuccess(details) {
 }
 
 export function fetchHomePage() {
-  return async dispatch => {
+  return async (dispatch) => {
     dispatch(fetchContentStart());
     try {
       const moviesResponse = await axios.get(

@@ -1,3 +1,1 @@
-import DetailsPage from './DetailsPage';
-
-export default DetailsPage
+export { default } from './DetailsPage';

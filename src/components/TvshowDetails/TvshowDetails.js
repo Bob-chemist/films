@@ -6,7 +6,7 @@ import { Container, Row, Col } from 'reactstrap';
 
 import token from '../../API/APItoken';
 
-const TvshowDetails = props => {
+const TvshowDetails = (props) => {
   const [loading, setLoading] = useState(true);
   const [tvshow, setTvshow] = useState({
     backdrop_path: '',
@@ -34,8 +34,8 @@ const TvshowDetails = props => {
     fetchDetails('tv', props.id.match.params.id);
   }, [props.id.match.params.id]);
 
-  const renderList = arr => {
-    return arr.map(item => {
+  const renderList = (arr) => {
+    return arr.map((item) => {
       return <div key={'list' + Math.random()}>{item.name}</div>;
     });
   };

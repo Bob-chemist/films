@@ -1,7 +1,7 @@
 {
   "extends": [
     "react-app",
-    "prettier"
+    "plugin:prettier/recommended"
   ],
   "plugins": [
     "react-hooks",
@@ -11,7 +11,8 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "prettier/prettier": ["error", {
-      "singleQuote": true
+      "singleQuote": true,
+      "endOfLine": "auto"
     }],
     "jsx-quotes": ["error", "prefer-double"],
     "quotes": ["error", "single"]

@@ -1,3 +1,1 @@
-import TvshowDetails from './TvshowDetails';
-
-export default TvshowDetails
+export { default } from './TvshowDetails';

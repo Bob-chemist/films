@@ -36,7 +36,4 @@ const mapDispatchToProps = {
   fetchPopular,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MoviesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(MoviesPage);

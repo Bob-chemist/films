@@ -1,3 +1,1 @@
-import RowList from './RowList';
-
-export default RowList
+export { default } from './RowList';

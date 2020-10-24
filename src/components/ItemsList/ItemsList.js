@@ -1,9 +1,8 @@
-import React from 'react';
 import classes from './ItemsList.module.sass';
 import { Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-const ItemsList = props => {
+const ItemsList = (props) => {
   const { itemsList } = props;
 
   return itemsList.map((item, idx) => {

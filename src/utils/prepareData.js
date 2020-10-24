@@ -1,4 +1,4 @@
-export const _transformMovies = movie => {
+export const _transformMovies = (movie) => {
   return {
     name: movie.title,
     id: movie.id,
@@ -6,7 +6,7 @@ export const _transformMovies = movie => {
     overview: movie.overview,
   };
 };
-export const _transformTvShow = tvShow => {
+export const _transformTvShow = (tvShow) => {
   return {
     name: tvShow.name,
     id: tvShow.id,
@@ -15,7 +15,7 @@ export const _transformTvShow = tvShow => {
   };
 };
 
-export const _transformPersons = person => {
+export const _transformPersons = (person) => {
   return {
     id: person.id,
     name: person.name,

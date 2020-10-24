@@ -1,3 +1,1 @@
-import TVshowsPage from './TVshowsPage';
-
-export default TVshowsPage
+export { default } from './TVshowsPage';
